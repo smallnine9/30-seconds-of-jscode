@@ -42,6 +42,7 @@ p1.then(() => {
     console.log('Promise 2')
 })
 async function func() {
+    console.log('func')
     console.log(await 'await func')
 }
 func()

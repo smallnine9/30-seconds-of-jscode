@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<head></head>
+<body>
+    <button id="button1">闭包的定义</button>
+    <button id="button2">闭包的作用</button>
+
+    <p id="help">Helpful notes will appear here</p>
+    <p>E-mail: <input type="text" id="email" name="email"></p>
+    <p>Name: <input type="text" id="name" name="name"></p>
+    <p>Age: <input type="text" id="age" name="age"></p>
+<script>
+function helloworld (str) {
+    console.log(str)
+}
+
+function closureConsole (str) {
+    return function () {
+        alert(str)
+    }
+}
+
+function counterclosure () {
+    var privateCounter = 0
+    function changeCounter (num) {
+        privateCounter += num
+    }
+    return  {
+        addCounter () {
+            changeCounter(1)
+        },
+        reduceCounter () {
+            changeCounter(-1)
+        },
+        showValue () {
+            console.log(privateCounter)
+        }
+    }
+}
+document.getElementById('button1').onclick = closureConsole('闭包是一种组合，将特定的函数操作和特定的环境绑定在一起，换句话说，就是可以从内部函数访问外部函数的作用域')
+document.getElementById('button2').onclick = closureConsole('闭包是一种函数工厂可以快速批量生产所需要的函数避免一个个手写，同时还能实现私有方法和私有变量')
+var counter = counterclosure()
+counter.addCounter()
+counter.showValue()
+counter.reduceCounter()
+counter.showValue()
+
+function showhelp (text) {
+    document.getElementById('help').innerHTML = text
+}
+
+function bundleHelpText () {
+    var helptexts = [
+        { id: 'email', value: 'email focus'},
+        { id: 'name', value: 'name focus'},
+        { id: 'age', value: 'age focus'}
+    ]
+    for (let i =0; i < helptexts.length; i++) {
+        document.getElementById(helptexts[i].id).onfocus = function () {
+            console.log(i)
+            showhelp(helptexts[i].value)
+        }
+    }
+}
+bundleHelpText()
+
+
+</script>
+</body>
+</html>

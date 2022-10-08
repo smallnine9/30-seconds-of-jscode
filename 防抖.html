@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<head>
+    <script>
+
+    </script>
+</head>
+<body>
+    <input id="input1"></input>
+<script>
+    function debounce(func, delay) {
+        var timer
+        return function() {
+            let context = this
+            let args = arguments
+            // console.log(context)
+            clearTimeout(timer)
+            timer = setTimeout(function () {
+                func.apply(context, args)
+            },delay)
+        }
+    }
+    function inputConsole() {
+        console.log(arguments[0])
+        console.log(Array.isArray(arguments))
+        console.log(this)
+        console.log('input' + new Date())
+    }
+    var input1 = document.getElementById("input1")
+    input1.addEventListener('keyup', function(e) {
+        debounce(inputConsole, 1000)(e.target.value)
+    })
+</script>
+</body>
+</html>

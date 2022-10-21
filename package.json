@@ -1,0 +1,22 @@
+{
+  "name": "alanyu-30scode",
+  "version": "1.0.0",
+  "description": "my first npm package",
+  "main": "arguments.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smallnine9/30-seconds-of-jscode.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/smallnine9/30-seconds-of-jscode/issues"
+  },
+  "homepage": "https://github.com/smallnine9/30-seconds-of-jscode#readme",
+  "devDependencies": {
+    "typescript": "^4.8.4"
+  }
+}

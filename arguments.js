@@ -1,5 +1,9 @@
-function fun1(args) {
-    console.log(arguments)
-    console.log(arguments[3])
+function func1(a,...args) {
+    console.log(a)
+    console.log(...args)
+    func2(...args)
 }
-fun1(1,2,3,4)
+function func2(a) {
+    console.log(a)
+}
+func1(1,2,3)

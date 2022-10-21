@@ -43,7 +43,13 @@ p1.then(() => {
 })
 async function func() {
     console.log('func')
+    await console.log('first await')
+    await func2()
     console.log(await 'await func')
 }
+async function func2() {
+    console.log('func2')
+}
 func()
+console.log(Promise.resolve('3'))
 console.log('hello world')
